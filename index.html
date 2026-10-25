@@ -11,11 +11,13 @@
     :root {
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
       --dark: #0f172a;
       --border: #e2e8f0;
       --text-main: #334155;
       --text-muted: #64748b;
       --bg-gray: #f8fafc;
+      --card-hover: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -24,10 +26,14 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text-main);
-      background: #ffffff;
+      background-color: #ffffff;
       line-height: 1.6;
     }
 
@@ -40,7 +46,7 @@
     }
 
     .nav-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -49,7 +55,7 @@
     }
 
     .brand {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--dark);
       letter-spacing: -0.5px;
@@ -63,11 +69,13 @@
       display: inline-block;
       font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.75rem 1.4rem;
+      padding: 0.65rem 1.25rem;
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
       cursor: pointer;
+      border: none;
+      text-align: center;
     }
 
     .btn-primary {
@@ -81,12 +89,12 @@
 
     .hero {
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      padding: 4rem 1.5rem 3rem;
+      padding: 4.5rem 1.5rem 3rem;
       text-align: center;
     }
 
     .hero-content {
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
@@ -104,7 +112,7 @@
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       line-height: 1.2;
       font-weight: 800;
       color: var(--dark);
@@ -130,38 +138,75 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 3.5rem 1.5rem;
     }
 
-    .section-header {
+    .controls-wrapper {
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
       text-align: center;
-      margin-bottom: 2.5rem;
     }
 
-    .section-header h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--dark);
-      letter-spacing: -0.5px;
+    .search-box {
+      width: 100%;
+      max-width: 550px;
+      padding: 0.85rem 1.25rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .section-header p {
+    .search-box:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-gray);
+      border: 1px solid var(--border);
+      padding: 0.55rem 1rem;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
       color: var(--text-muted);
-      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: #e2e8f0;
+      color: var(--dark);
+    }
+
+    .filter-btn.active {
+      background: var(--dark);
+      color: #ffffff;
+      border-color: var(--dark);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
     }
 
     .card {
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.8rem;
+      padding: 1.5rem;
       background: #ffffff;
       display: flex;
       flex-direction: column;
@@ -171,82 +216,136 @@
 
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--card-hover);
     }
 
-    .card-top h3 {
-      font-size: 1.25rem;
+    .card-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .card h3 {
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 0.5rem;
+      line-height: 1.35;
     }
 
-    .card-top p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .price {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-
-    .price-suffix {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .features {
-      list-style: none;
+    .card p {
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card-footer {
       border-top: 1px solid var(--border);
       padding-top: 1rem;
-    }
-
-    .features li {
-      padding: 0.35rem 0;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 0.5rem;
     }
 
-    .features li::before {
-      content: "✓";
-      color: #16a34a;
+    .price {
+      font-size: 1.35rem;
       font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .price-suffix {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
     }
 
     .contact-card {
       background: var(--dark);
       color: #ffffff;
       border-radius: 16px;
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem;
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 850px;
+      margin: 2rem auto 4rem;
     }
 
     .contact-card h2 {
-      font-size: 2rem;
+      font-size: 2.1rem;
       margin-bottom: 1rem;
     }
 
     .contact-card p {
       color: #94a3b8;
-      max-width: 550px;
+      max-width: 580px;
       margin: 0 auto 2rem;
       font-size: 1.05rem;
+    }
+
+    /* Simple Booking Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 1rem;
+    }
+
+    .modal {
+      background: #ffffff;
+      max-width: 480px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .modal h3 {
+      font-size: 1.35rem;
+      color: var(--dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-service-name {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: none;
     }
 
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
       font-size: 0.85rem;
       color: var(--text-muted);
     }
@@ -254,8 +353,10 @@
     @media (max-width: 640px) {
       h1 { font-size: 2rem; }
       .hero { padding: 3rem 1rem 2rem; }
-      .container { padding: 2.5rem 1rem; }
-      .logistics-bar { flex-direction: column; gap: 0.75rem; align-items: center; }
+      .container { padding: 2rem 1rem; }
+      .logistics-bar { flex-direction: column; gap: 0.5rem; align-items: center; }
+      .filter-tabs { flex-direction: column; }
+      .filter-btn { width: 100%; }
     }
   </style>
 </head>
@@ -264,7 +365,7 @@
   <header>
     <div class="nav-container">
       <div class="brand">Apex <span>Tech</span></div>
-      <a href="#services" class="btn btn-primary">View Pricing</a>
+      <a href="#services" class="btn btn-primary">Browse All 50 Services</a>
     </div>
   </header>
 
@@ -272,7 +373,7 @@
     <div class="hero-content">
       <div class="badge">Potters Bar &amp; Hertfordshire</div>
       <h1>Fast, Reliable Tech Repair &amp; IT Solutions</h1>
-      <p class="hero-desc">Specialized software maintenance, data migrations, SSD/RAM hardware upgrades, and business support—engineered for fast turnaround.</p>
+      <p class="hero-desc">Specialized software revivals, SSD speed boosts, malware cleaning, Wi-Fi optimization, and small-business tech support—with clear, fixed prices.</p>
       
       <div class="logistics-bar">
         <div>📍 Home-Workshop Drop-off</div>
@@ -283,115 +384,611 @@
   </section>
 
   <main class="container" id="services">
-    <div class="section-header">
-      <h2>Core Services &amp; Fixed Pricing</h2>
-      <p>Transparent rates with zero high-street retail markups.</p>
+    <div class="controls-wrapper">
+      <input type="text" id="searchInput" class="search-box" placeholder="Search 50 services (e.g. SSD, printer, malware, thermal, screen)...">
+      
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Services (50)</button>
+        <button class="filter-btn" data-filter="revivals">⚡ Speed Revivals (1–7)</button>
+        <button class="filter-btn" data-filter="software">🛡️ Software, Security &amp; Data (8–26)</button>
+        <button class="filter-btn" data-filter="home-tech">📡 Wi-Fi, Printers &amp; Home Tech (27–37)</button>
+        <button class="filter-btn" data-filter="business-hardware">💼 Business &amp; Repairs (38–50)</button>
+      </div>
     </div>
 
-    <div class="services-grid">
-      <div class="card">
-        <div class="card-top">
-          <h3>Laptop Speed Revival (500GB SSD)</h3>
-          <p>Full sector clone of slow mechanical hard drives to a high-speed SSD.</p>
+    <div class="services-grid" id="servicesGrid">
+
+      <!-- CATEGORY 1: Speed Revivals (1–7) -->
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>1. SSD Speed Revival (500GB)</h3>
+        <p>Full sector clone of slow mechanical hard drives to a fast SSD. Preserves all files, apps, and layout with 5x faster speeds.</p>
+        <div class="card-footer">
           <div class="price">£85 <span class="price-suffix">flat rate</span></div>
-          <ul class="features">
-            <li>100% data preservation guarantee</li>
-            <li>Crucial / Kingston SSD included</li>
-            <li>TRIM &amp; OS boot optimization</li>
-            <li>Up to 5x faster load speeds</li>
-          </ul>
+          <button class="btn btn-primary" onclick="openBooking('SSD Speed Revival (500GB)', '£85')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=Laptop Speed Revival" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <h3>High-Capacity NVMe / SSD (1TB)</h3>
-          <p>Complete system migration to high-performance storage for heavy storage users.</p>
-          <div class="price">£125 <span class="price-suffix">flat rate</span></div>
-          <ul class="features">
-            <li>Partition realignment &amp; expansion</li>
-            <li>Drive health &amp; thermal check</li>
-            <li>Original drive kept safe as fallback</li>
-            <li>High-speed Gen3/Gen4 NVMe</li>
-          </ul>
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>2. High-Capacity SSD Revival (1TB / 2TB)</h3>
+        <p>Drive cloning and partition expansion for massive photo, video, or gaming libraries requiring high storage bandwidth.</p>
+        <div class="card-footer">
+          <div class="price">£125–£165</div>
+          <button class="btn btn-primary" onclick="openBooking('High-Capacity SSD Revival (1TB/2TB)', '£125-£165')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=1TB SSD Revival" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <h3>Thermal Overhaul &amp; Fan De-Dust</h3>
-          <p>Chassis disassembly, heatsink clearing, and premium non-conductive thermal paste.</p>
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>3. RAM Memory Upgrade &amp; Install</h3>
+        <p>Sourcing and fitting matching RAM modules to eliminate multi-tab browser stuttering, lag, and out-of-memory crashes.</p>
+        <div class="card-footer">
+          <div class="price">£35 <span class="price-suffix">+ parts</span></div>
+          <button class="btn btn-primary" onclick="openBooking('RAM Memory Upgrade & Install', '£35 + parts')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>4. Deep System Optimization &amp; Startup Tuning</h3>
+        <p>Disables sluggish background startup services, purges OEM bloatware, cleans caches, and optimizes registry settings.</p>
+        <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <ul class="features">
-            <li>Prevents heat-induced shutdowns</li>
-            <li>Fan bearing lubrication check</li>
-            <li>Bench stress &amp; temperature testing</li>
-            <li>Quiet fan operation restored</li>
-          </ul>
+          <button class="btn btn-primary" onclick="openBooking('Deep System Optimization & Startup Tuning', '£45')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=Thermal Overhaul" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <h3>Malware &amp; Rootkit Sanitization</h3>
-          <p>Deep-layer eradication of spyware, Trojans, ad injectors, and malware.</p>
-          <div class="price">£55 <span class="price-suffix">flat rate</span></div>
-          <ul class="features">
-            <li>Offline kernel/registry sweep</li>
-            <li>Browser security reset</li>
-            <li>Startup optimization</li>
-            <li>Security updates &amp; patches</li>
-          </ul>
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>5. Laptop Thermal Overhaul &amp; De-Dust</h3>
+        <p>Full chassis disassembly, heatsink dust clearing, and high-performance thermal compound repasting to stop loud fans and thermal throttling.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Laptop Thermal Overhaul & De-Dust', '£45')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=Malware Removal" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <h3>Clean OS Reinstall &amp; Hardening</h3>
-          <p>Fresh genuine Windows/macOS install free of bloatware and background clutter.</p>
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>6. Windows 11 In-Place Upgrade</h3>
+        <p>Bypasses artificial TPM 2.0 / CPU limitations on older unsupported hardware to install Windows 11 safely without deleting personal files.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Windows 11 Compatibility In-Place Upgrade', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="revivals">
+        <div class="card-category">Speed Revivals &amp; Upgrades</div>
+        <h3>7. Storage Space Reclamation</h3>
+        <p>Purging obsolete Windows.old directories, orphaned update caches, temp dumps, and duplicate media to recover tens of gigabytes.</p>
+        <div class="card-footer">
+          <div class="price">£35 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Storage Space Reclamation', '£35')">Book</button>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2 & 3 & 4: Software, Security & Data (8–26) -->
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>8. Clean Windows 11 / 10 Installation</h3>
+        <p>Fresh genuine Windows install completely devoid of manufacturer bloatware, fully patched with tested motherboard drivers.</p>
+        <div class="card-footer">
           <div class="price">£50 <span class="price-suffix">flat rate</span></div>
-          <ul class="features">
-            <li>User data backup beforehand</li>
-            <li>Latest stable system drivers</li>
-            <li>Security configuration</li>
-            <li>Restores peak factory speed</li>
-          </ul>
+          <button class="btn btn-primary" onclick="openBooking('Clean Windows 11 / 10 Installation', '£50')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=Clean OS Install" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
 
-      <div class="card">
-        <div class="card-top">
-          <h3>Small Business &amp; Home IT Support</h3>
-          <p>Hands-on help with routers, printers, migrations, and system maintenance.</p>
-          <div class="price">£60 <span class="price-suffix">/ hour</span></div>
-          <ul class="features">
-            <li>Local network &amp; Wi-Fi tuning</li>
-            <li>Secure backups &amp; recovery</li>
-            <li>On-site or remote assistance</li>
-            <li>Fast issue diagnosis</li>
-          </ul>
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>9. macOS Clean Reinstall &amp; Recovery</h3>
+        <p>Complete recovery, reformatting, and clean macOS deployment for sluggish or corrupted MacBooks and iMacs.</p>
+        <div class="card-footer">
+          <div class="price">£55 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('macOS Clean Reinstall & Recovery', '£55')">Book</button>
         </div>
-        <a href="mailto:support@example.com?subject=IT Support Booking" class="btn btn-primary" style="text-align:center;">Book Service</a>
       </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>10. Dual-Boot OS Setup (Windows &amp; Linux)</h3>
+        <p>Partitioning internal storage safely to run Ubuntu, Linux Mint, or Fedora side-by-side with Windows with a GRUB boot menu.</p>
+        <div class="card-footer">
+          <div class="price">£60 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Dual-Boot OS Setup', '£60')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>11. Blue Screen (BSOD) &amp; Crash Loop Fix</h3>
+        <p>Dump file kernel analysis, faulty driver isolation, and boot sector remediation to stop perpetual reboot loops and stop codes.</p>
+        <div class="card-footer">
+          <div class="price">£50 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Blue Screen & Crash Loop Fix', '£50')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>12. Forgotten Windows Password / PIN Reset</h3>
+        <p>Offline credential bypass to safely reset locked local administrator accounts without formatting or losing personal files.</p>
+        <div class="card-footer">
+          <div class="price">£35 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Windows Password / PIN Reset', '£35')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>13. Corrupted User Profile Repair</h3>
+        <p>Fixing temporary profile load errors so your original desktop, document folders, app settings, and shortcuts reappear intact.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Corrupted User Profile Repair', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>14. "White Glove" PC Data Migration</h3>
+        <p>Transferring all documents, photos, browser bookmarks, stored passwords, and desktop layouts from an old machine to a new PC.</p>
+        <div class="card-footer">
+          <div class="price">£60 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('White Glove Data Migration', '£60')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>15. Accidental Deletion File Recovery</h3>
+        <p>Deep file carving to recover deleted files, emptied recycle bins, or photos from formatted SD cards and USB pen drives.</p>
+        <div class="card-footer">
+          <div class="price">£50–£85</div>
+          <button class="btn btn-primary" onclick="openBooking('Accidental Deletion File Recovery', '£50-£85')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>16. Failing Hard Drive Data Extraction</h3>
+        <p>Bit-stream disk imaging to salvage critical documents from clicking, unmountable, or degraded hard drives before total death.</p>
+        <div class="card-footer">
+          <div class="price">£75–£120</div>
+          <button class="btn btn-primary" onclick="openBooking('Failing Hard Drive Data Extraction', '£75-£120')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>17. Automated External USB Backup Setup</h3>
+        <p>Configuring scheduled, hands-off local backups via Windows File History or Macrium to keep complete off-line snapshots.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Automated External Backup Setup', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>18. Cloud Backup Automation</h3>
+        <p>Setting up and syncing automatic background backups to Microsoft OneDrive, Google Drive, or Dropbox without duplicate folders.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Cloud Backup Automation', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>19. Secure NIST 800-88 Data Erasure</h3>
+        <p>Irreversible multi-pass data destruction on retired hard drives before resale or recycling, with a Certificate of Erasure.</p>
+        <div class="card-footer">
+          <div class="price">£25 <span class="price-suffix">/ drive</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Secure Certified Data Erasure', '£25')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>20. Phone to PC Photo/Video Offloading</h3>
+        <p>Safely transferring thousands of photos/videos from iPhone or Android to a laptop or external drive to reclaim phone memory.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Phone Photo/Video Offloading', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>21. Malware, Spyware &amp; Adware Deep Clean</h3>
+        <p>Eliminating intrusive ad pop-ups, malicious browser hijackers, and persistent Trojans using kernel-level sanitization tools.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Malware & Adware Deep Clean', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>22. Fake "Virus Alert" Scam Removal</h3>
+        <p>Safely terminating locked full-screen scam screens and removing rogue remote management apps downloaded during a call.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Scam Screen Lockdown Removal', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>23. Post-Scam Security Audit &amp; Lockdown</h3>
+        <p>Comprehensive device sanitization, registry audit, and credential resetting after unauthorized remote scam access.</p>
+        <div class="card-footer">
+          <div class="price">£60 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Post-Scam Security Audit', '£60')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>24. Ad-Blocker &amp; Privacy Setup</h3>
+        <p>Configuring system-level and browser-level tracker blockers (uBlock Origin) to eliminate ads, YouTube interruptions, and trackers.</p>
+        <div class="card-footer">
+          <div class="price">£30 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Ad-Blocker & Privacy Setup', '£30')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>25. Password Manager Setup &amp; Training</h3>
+        <p>Setting up Bitwarden or 1Password, auditing reused passwords, configuring 2FA, and demonstrating secure autofill across all devices.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Password Manager Setup', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="software">
+        <div class="card-category">Software, Security &amp; Data</div>
+        <h3>26. Parental Controls &amp; Screen Time</h3>
+        <p>Configuring DNS content filtering, safe search enforcement, and schedule limits on Windows PCs, iPads, or home Wi-Fi routers.</p>
+        <div class="card-footer">
+          <div class="price">£50 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Parental Controls Setup', '£50')">Book</button>
+        </div>
+      </div>
+
+      <!-- CATEGORY 5 & 6: Wi-Fi, Printers & Workspaces (27–37) -->
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>27. Wireless Printer Setup &amp; Dropout Fix</h3>
+        <p>Resolving persistent offline status, print spooler errors, driver conflicts, and fixing unstable Wi-Fi connections.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Wireless Printer Setup & Fix', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>28. Dual-Monitor &amp; WFH Dock Setup</h3>
+        <p>Configuring Thunderbolt/USB-C docks, dual-monitor display scaling, external keyboards, and clean cable routing for home desks.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Dual-Monitor & Dock Setup', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>29. Remote IT Helpdesk (30-Min Session)</h3>
+        <p>Fast remote connection via AnyDesk/TeamViewer to solve email sync glitches, PDF bugs, or software errors without an in-person visit.</p>
+        <div class="card-footer">
+          <div class="price">£30 <span class="price-suffix">/ session</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Remote IT Helpdesk Session', '£30')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>30. Email Client Configuration</h3>
+        <p>Configuring Outlook, Thunderbird, or Apple Mail with IMAP/SMTP, fixing sync discrepancies, and archiving bloated PST files.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Email Client Configuration', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>31. Software Suite Bulk Setup</h3>
+        <p>Automated bulk installation of standard utilities: LibreOffice/MS 365, browsers, PDF tools, VLC, and essential runtimes.</p>
+        <div class="card-footer">
+          <div class="price">£30 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Software Suite Bulk Setup', '£30')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>32. Webcam &amp; Microphone Audio Fix</h3>
+        <p>Resolving privacy permissions, driver conflicts, and distorted sound for Zoom, Microsoft Teams, and Google Meet.</p>
+        <div class="card-footer">
+          <div class="price">£35 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Webcam & Microphone Audio Fix', '£35')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>33. Mesh Wi-Fi Setup &amp; Dead Zone Fix</h3>
+        <p>Installing and placing whole-home mesh systems (TP-Link Deco, Eero) to guarantee wall-to-wall coverage and seamless roaming.</p>
+        <div class="card-footer">
+          <div class="price">£65 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Mesh Wi-Fi Installation', '£65')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>34. Router Optimization &amp; Channel Tuning</h3>
+        <p>Analyzing local RF congestion, changing overlapping channels, and splitting 2.4GHz / 5GHz bands for maximum wireless throughput.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Router Optimization & Channel Tuning', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>35. Powerline &amp; Network Adapter Setup</h3>
+        <p>Connecting garden offices or remote bedrooms to high-speed Ethernet via electrical wiring using paired AV2 powerline adapters.</p>
+        <div class="card-footer">
+          <div class="price">£40 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Powerline Adapter Setup', '£40')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>36. IoT &amp; Smart Device Network Isolation</h3>
+        <p>Creating an isolated guest network for smart plugs, security cameras, and TV dongles so smart devices cannot access your PC.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('IoT Network Isolation', '£45')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="home-tech">
+        <div class="card-category">Wi-Fi, Printers &amp; Home Tech</div>
+        <h3>37. Smart TV &amp; Streaming Device Setup</h3>
+        <p>Connecting Fire Sticks, Apple TV, and smart TVs to optimum Wi-Fi bands, configuring accounts, audio output, and streaming apps.</p>
+        <div class="card-footer">
+          <div class="price">£35 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Smart TV & Streaming Setup', '£35')">Book</button>
+        </div>
+      </div>
+
+      <!-- CATEGORY 7 & 8: Small Business & Hardware (38–50) -->
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>38. Custom Domain Business Email</h3>
+        <p>Setting up yourname@business.co.uk on Microsoft 365 or Google Workspace with complete DNS verification and MX setup.</p>
+        <div class="card-footer">
+          <div class="price">£80 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Custom Domain Business Email', '£80')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>39. DNS Deliverability Fix (SPF/DKIM/DMARC)</h3>
+        <p>Resolving authentication records so your business quotes and invoices stop landing in customer spam and junk folders.</p>
+        <div class="card-footer">
+          <div class="price">£55 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('DNS Deliverability Fix', '£55')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>40. Office Shared Storage (NAS) Setup</h3>
+        <p>Deploying a Synology or QNAP central network storage unit with RAID redundancy, user access rights, and off-site cloud sync.</p>
+        <div class="card-footer">
+          <div class="price">£140 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Office Shared NAS Setup', '£140')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>41. VoIP Desk Phone Provisioning</h3>
+        <p>Flashing firmware and provisioning Yealink, Mitel, or Cisco IP phones to link seamlessly with cloud SIP VoIP providers.</p>
+        <div class="card-footer">
+          <div class="price">£65 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('VoIP Desk Phone Provisioning', '£65')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>42. Scheduled Monthly Maintenance</h3>
+        <p>Proactive monthly workstation updates, patch management, antivirus sweeps, and health checks for small local practices.</p>
+        <div class="card-footer">
+          <div class="price">£90 <span class="price-suffix">/ month</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Monthly IT Maintenance Retainer', '£90/mo')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>43. Small Office Network Switch Setup</h3>
+        <p>Installing unmanaged or PoE network switches and terminating wall patch panels to connect office desktops and printers.</p>
+        <div class="card-footer">
+          <div class="price">£85 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Office Network Switch Setup', '£85')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>44. Employee Onboarding / Offboarding Prep</h3>
+        <p>Standardizing, imaging, and security-prepping laptops for new hires, or securely wiping returned devices from departing staff.</p>
+        <div class="card-footer">
+          <div class="price">£50 <span class="price-suffix">/ machine</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Employee PC Prep', '£50')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>45. Laptop Battery Replacement</h3>
+        <p>Replacing swollen, degraded, or dead internal laptop batteries with fresh high-capacity cells to restore wireless runtime.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">+ battery</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Laptop Battery Replacement', '£45 + battery')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>46. Desktop PC Power Supply (PSU) Swap</h3>
+        <p>Diagnosing non-booting or sparking PCs and installing fresh 80-Plus certified modular power supply units.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">+ PSU</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Desktop PSU Swap', '£45 + PSU')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>47. Laptop Keyboard Replacement</h3>
+        <p>Swapping broken, sticky, or liquid-damaged keyboards on modular laptops with genuine replacement parts.</p>
+        <div class="card-footer">
+          <div class="price">£45 <span class="price-suffix">+ part</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Laptop Keyboard Replacement', '£45 + part')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>48. iPhone Screen Replacement</h3>
+        <p>Replacing cracked glass panels and unresponsive touchscreens with premium OLED or Incell quality-tested displays.</p>
+        <div class="card-footer">
+          <div class="price">£65–£95 <span class="price-suffix">all-in</span></div>
+          <button class="btn btn-primary" onclick="openBooking('iPhone Screen Replacement', '£65-£95')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>49. Custom Desktop PC Assembly</h3>
+        <p>Professional assembly of client-sourced components into a completed rig with clean cable management, BIOS flashing, and stress testing.</p>
+        <div class="card-footer">
+          <div class="price">£90 <span class="price-suffix">flat rate</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Custom PC Assembly', '£90')">Book</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="business-hardware">
+        <div class="card-category">Business IT &amp; Repairs</div>
+        <h3>50. Bench Diagnostic Assessment</h3>
+        <p>Comprehensive stress testing and multimeter circuit checks for unexplained crashes. Fully deductible if you proceed with repair.</p>
+        <div class="card-footer">
+          <div class="price">£25 <span class="price-suffix">deductible</span></div>
+          <button class="btn btn-primary" onclick="openBooking('Bench Diagnostic Assessment', '£25')">Book</button>
+        </div>
+      </div>
+
     </div>
   </main>
 
   <section class="container" style="padding-top: 0;">
     <div class="contact-card">
-      <h2>Ready to get your device sorted?</h2>
-      <p>Drop off at our local Potters Bar workshop or arrange easy Royal Mail tracked collection.</p>
-      <a href="mailto:support@example.com?subject=Device Repair Booking" class="btn btn-primary" style="background:#ffffff; color:#0f172a;">Contact / Book Now</a>
+      <h2>Got an unusual issue or custom project?</h2>
+      <p>Drop off at our local Potters Bar workshop or arrange convenient Royal Mail tracked collection across Hertfordshire.</p>
+      <button class="btn btn-primary" style="background:#ffffff; color:#0f172a;" onclick="openBooking('Custom Inquiry', 'Quote')">Send Custom Inquiry</button>
     </div>
   </section>
 
+  <!-- Simple Fast Booking Modal -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeBooking()">&times;</button>
+      <h3>Book or Inquire</h3>
+      <div class="modal-service-name" id="modalServiceName">Service Name</div>
+      
+      <div class="modal-actions">
+        <a id="emailBookingLink" class="btn btn-primary" href="#">Contact via Email</a>
+        <button class="btn" style="background:#f1f5f9; color:#0f172a;" onclick="closeBooking()">Close</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2026 Apex Tech Solutions. All rights reserved.</p>
+    <p>&copy; 2026 Apex Tech Solutions. Sole Trader registered in England &amp; Wales.</p>
   </footer>
 
+  <script>
+    // Tab Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    const searchInput = document.getElementById('searchInput');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+      });
+    });
+
+    // Instant Search Filtering
+    searchInput.addEventListener('input', () => {
+      applyFilters();
+    });
+
+    function applyFilters() {
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+      const query = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const categoryMatch = (activeFilter === 'all' || card.dataset.category === activeFilter);
+        const textContent = card.innerText.toLowerCase();
+        const searchMatch = !query || textContent.includes(query);
+
+        if (categoryMatch && searchMatch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Booking Function
+    const modal = document.getElementById('bookingModal');
+    const modalServiceName = document.getElementById('modalServiceName');
+    const emailLink = document.getElementById('emailBookingLink');
+
+    function openBooking(service, price) {
+      modalServiceName.innerText = `${service} (${price})`;
+      const subject = encodeURIComponent(`Booking Inquiry: ${service}`);
+      const body = encodeURIComponent(`Hi Apex Tech,\n\nI would like to book or ask about the following service:\n- Service: ${service}\n- Price: ${price}\n\nDevice details / symptoms:\n\nPreferred drop-off or collection day:\n`);
+      emailLink.href = `mailto:support@example.com?subject=${subject}&body=${body}`;
+      modal.style.display = 'flex';
+    }
+
+    function closeBooking() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeBooking();
+      }
+    };
+  </script>
 </body>
 </html>
