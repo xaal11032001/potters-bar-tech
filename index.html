@@ -12,6 +12,8 @@
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
       --primary-light: #eff6ff;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #20ba59;
       --dark: #0f172a;
       --border: #e2e8f0;
       --text-main: #334155;
@@ -65,6 +67,26 @@
       color: var(--primary);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .phone-link {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .phone-link:hover {
+      color: var(--primary);
+    }
+
     .btn {
       display: inline-block;
       font-weight: 600;
@@ -85,6 +107,15 @@
 
     .btn-primary:hover {
       background-color: var(--primary-hover);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: #ffffff;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
     }
 
     .hero {
@@ -287,6 +318,13 @@
       font-size: 1.05rem;
     }
 
+    .direct-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
     /* Simple Booking Modal */
     .modal-overlay {
       position: fixed;
@@ -357,6 +395,7 @@
       .logistics-bar { flex-direction: column; gap: 0.5rem; align-items: center; }
       .filter-tabs { flex-direction: column; }
       .filter-btn { width: 100%; }
+      .phone-link { display: none; }
     }
   </style>
 </head>
@@ -365,7 +404,10 @@
   <header>
     <div class="nav-container">
       <div class="brand">Apex <span>Tech</span></div>
-      <a href="#services" class="btn btn-primary">Browse All 50 Services</a>
+      <div class="nav-right">
+        <a href="tel:07724631623" class="phone-link">📞 07724 631623</a>
+        <a href="https://wa.me/447724631623" target="_blank" class="btn btn-whatsapp" style="font-size:0.88rem; padding:0.5rem 1rem;">💬 WhatsApp</a>
+      </div>
     </div>
   </header>
 
@@ -469,7 +511,7 @@
         </div>
       </div>
 
-      <!-- CATEGORY 2 & 3 & 4: Software, Security & Data (8–26) -->
+      <!-- CATEGORY 2, 3 & 4: Software, Security & Data (8–26) -->
       <div class="card" data-category="software">
         <div class="card-category">Software, Security &amp; Data</div>
         <h3>8. Clean Windows 11 / 10 Installation</h3>
@@ -909,26 +951,30 @@
     <div class="contact-card">
       <h2>Got an unusual issue or custom project?</h2>
       <p>Drop off at our local Potters Bar workshop or arrange convenient Royal Mail tracked collection across Hertfordshire.</p>
-      <button class="btn btn-primary" style="background:#ffffff; color:#0f172a;" onclick="openBooking('Custom Inquiry', 'Quote')">Send Custom Inquiry</button>
+      <div class="direct-links">
+        <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20have%20a%20custom%20inquiry%20regarding%20a%20device." target="_blank" class="btn btn-whatsapp">💬 Message on WhatsApp</a>
+        <a href="mailto:x.aderianwalla1@gmail.com?subject=Custom%20Repair%20Inquiry" class="btn btn-primary" style="background:#ffffff; color:#0f172a;">✉️ Email Direct</a>
+      </div>
     </div>
   </section>
 
-  <!-- Simple Fast Booking Modal -->
+  <!-- Interactive Modal with WhatsApp and Email Options -->
   <div class="modal-overlay" id="bookingModal">
     <div class="modal">
       <button class="modal-close" onclick="closeBooking()">&times;</button>
-      <h3>Book or Inquire</h3>
+      <h3>Choose How to Connect</h3>
       <div class="modal-service-name" id="modalServiceName">Service Name</div>
       
       <div class="modal-actions">
-        <a id="emailBookingLink" class="btn btn-primary" href="#">Contact via Email</a>
-        <button class="btn" style="background:#f1f5f9; color:#0f172a;" onclick="closeBooking()">Close</button>
+        <a id="whatsappBookingLink" class="btn btn-whatsapp" target="_blank" href="#">💬 Chat on WhatsApp (Fastest)</a>
+        <a id="emailBookingLink" class="btn btn-primary" href="#">✉️ Send Email Inquiry</a>
+        <button class="btn" style="background:#f1f5f9; color:#0f172a;" onclick="closeBooking()">Cancel</button>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 Apex Tech Solutions. Sole Trader registered in England &amp; Wales.</p>
+    <p>&copy; 2026 Apex Tech Solutions. Sole Trader registered in England &amp; Wales. | Tel: 07724 631623 | x.aderianwalla1@gmail.com</p>
   </footer>
 
   <script>
@@ -971,12 +1017,20 @@
     const modal = document.getElementById('bookingModal');
     const modalServiceName = document.getElementById('modalServiceName');
     const emailLink = document.getElementById('emailBookingLink');
+    const whatsappLink = document.getElementById('whatsappBookingLink');
 
     function openBooking(service, price) {
       modalServiceName.innerText = `${service} (${price})`;
-      const subject = encodeURIComponent(`Booking Inquiry: ${service}`);
-      const body = encodeURIComponent(`Hi Apex Tech,\n\nI would like to book or ask about the following service:\n- Service: ${service}\n- Price: ${price}\n\nDevice details / symptoms:\n\nPreferred drop-off or collection day:\n`);
-      emailLink.href = `mailto:support@example.com?subject=${subject}&body=${body}`;
+      
+      // WhatsApp Click-to-chat setup
+      const waText = encodeURIComponent(`Hi Apex Tech! I would like to book or ask about: ${service} (${price}). My device model / symptoms are: `);
+      whatsappLink.href = `https://wa.me/447724631623?text=${waText}`;
+
+      // Email setup
+      const emailSubject = encodeURIComponent(`Booking Inquiry: ${service}`);
+      const emailBody = encodeURIComponent(`Hi Apex Tech,\n\nI would like to book or inquire about the following service:\n- Service: ${service}\n- Price: ${price}\n\nDevice Model & Issues:\n\nPreferred drop-off or collection day:\n\nBest contact number:\n`);
+      emailLink.href = `mailto:x.aderianwalla1@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
       modal.style.display = 'flex';
     }
 
