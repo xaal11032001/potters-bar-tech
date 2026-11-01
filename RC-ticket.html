@@ -17,7 +17,7 @@
 
     <form id="ticketForm">
         <h2>Repair Ticket Request</h2>
-        
+
         <label for="name">Customer Name:</label>
         <input type="text" id="name" name="name" required placeholder="John Doe">
 
@@ -29,30 +29,32 @@
 
         <button type="submit">Submit Ticket</button>
     </form>
-    <script></script> 
-document.getElementById('ticketForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    
-    const payload = {
-        title: `Repair Request: ${data.device} - ${data.name}`,
-        description: `Customer: ${data.name}\nDevice: ${data.device}\nIssue: ${data.issue}`
-    };
 
-    const response = await fetch('/api/tickets', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
 
-    if (response.ok) {
-        alert('Ticket submitted successfully!');
-        e.target.reset();
-    } else {
-        alert('Failed to submit ticket.');
-    }
-});
-<script/>
+            const payload = {
+                title: `Repair Request: ${data.device} - ${data.name}`,
+                description: `Customer: ${data.name}\nDevice: ${data.device}\nIssue: ${data.issue}`
+            };
+
+            const response = await fetch('/api/tickets', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                alert('Ticket submitted successfully!');
+                e.target.reset();
+            } else {
+                alert('Failed to submit ticket.');
+            }
+        });
+    </script>
+
 </body>
 </html>
