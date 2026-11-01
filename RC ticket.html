@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Ticket Request</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background-color: #0070f3; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0051a2; }
+    </style>
+</head>
+<body>
+
+    <form id="ticketForm">
+        <h2>Repair Ticket Request</h2>
+        
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe">
+
+        <label for="device">Device Type:</label>
+        <input type="text" id="device" name="device" required placeholder="iPhone 13">
+
+        <label for="issue">Description of Issue:</label>
+        <textarea id="issue" name="issue" rows="4" required placeholder="Screen is cracked"></textarea>
+
+        <button type="submit">Submit Ticket</button>
+    </form>
+
+</body>
+</html>
