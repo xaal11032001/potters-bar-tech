@@ -3,35 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repair Ticket Request</title>
+    <title>New Repair Ticket | Apex Tech Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
-        .form-container { max-width: 500px; margin: 0 auto; border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input[type="text"], textarea { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
-        button { width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --bg-gray: #f8fafc;
+            --border: #e2e8f0;
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--dark);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s, ring 0.2s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button.submit-btn {
+            width: 100%;
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button.submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-message i {
+            font-size: 48px;
+            color: #22c55e;
+            margin-bottom: 16px;
+        }
+
+        .success-message h2 {
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--bg-gray);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border);
+        }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>Repair Ticket Request</h2>
-        <form action="/api/tickets" method="POST">
-            <div class="form-group">
-                <label for="customerName">Customer Name:</label>
-                <input type="text" id="customerName" name="customerName" required>
+    <div class="container">
+        <div id="form-content">
+            <div class="header">
+                <h1>Repair Ticket Request</h1>
+                <p>Provide details for your device issue</p>
             </div>
-            <div class="form-group">
-                <label for="deviceType">Device Type:</label>
-                <input type="text" id="deviceType" name="deviceType" required>
-            </div>
-            <div class="form-group">
-                <label for="issueDescription">Description of Issue:</label>
-                <textarea id="issueDescription" name="issueDescription" rows="4" required></textarea>
-            </div>
-            <button type="submit">Submit Ticket</button>
-        </form>
+            <form id="ticket-form">
+                <div class="form-group">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" id="customerName" name="customerName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="deviceType">Device Type</label>
+                    <select id="deviceType" name="deviceType" required>
+                        <option value="" disabled selected>Select device type</option>
+                        <option value="iPhone 13">iPhone 13</option>
+                        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+                        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+                        <option value="MacBook Air">MacBook Air</option>
+                        <option value="MacBook Pro">MacBook Pro</option>
+                        <option value="iPad">iPad</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="issueDescription">Issue Description</label>
+                    <textarea id="issueDescription" name="issueDescription" required placeholder="Describe the problem you are experiencing..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span>Submit Ticket</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="success-message" id="success-message">
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>Ticket Submitted Successfully!</h2>
+            <p>Your repair ticket has been created. We will be in touch shortly.</p>
+            <a href="index.html" class="btn-secondary">Return Home</a>
+        </div>
     </div>
+
+    <script>
+        const form = document.getElementById('ticket-form');
+        const formContent = document.getElementById('form-content');
+        const successMessage = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Submitting...</span>';
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/api/tickets', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    formContent.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    alert('Error submitting ticket. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>Submit Ticket</span>';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Connection error. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Submit Ticket</span>';
+            }
+        });
+    </script>
 </body>
 </html>
