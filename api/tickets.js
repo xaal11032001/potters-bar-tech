@@ -13,17 +13,21 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { title, description } = req.body;
+    const { customerName, deviceType, issueDescription } = req.body;
     const githubToken = process.env.GITHUB_TICKET_TOKEN;
-    
-    const GITHUB_USERNAME = "xaal11032001"; 
-    const REPO_NAME = "potters-bar-tech"; 
+
+    const GITHUB_USERNAME = "xaal11032001";
+    const REPO_NAME = "potters-bar-tech";
 
     if (!githubToken) {
-      return res.status(500).json({ error: "Missing configuration on Vercel" });
+      return res.status(500).json({ error: 'Missing configuration on Vercel' });
     }
 
-    const response = await fetch(`https://github.com{GITHUB_USERNAME}/${REPO_NAME}/issues`, {
+    const title = `New Repair Ticket: ${deviceType} for ${customerName}`;
+    const escapedIssueDescription = issueDescription.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+    const body = `**Customer Name:** ${customerName}\n**Device Type:** ${deviceType}\n**Issue Description:**\n${escapedIssueDescription}`;
+
+    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/issues`, {
       method: 'POST',
       headers: {
         'Accept': 'application/vnd.github+json',
@@ -33,19 +37,20 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         title: title,
-        body: description,
+        body: body,
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
+      console.error('GitHub API Error:', data);
       return res.status(response.status).json({ success: false, error: data.message });
     }
 
     return res.status(200).json({ success: true, issueUrl: data.html_url });
-
   } catch (error) {
+    console.error('API Handler Error:', error);
     return res.status(500).json({ success: false, error: error.message });
   }
 }
