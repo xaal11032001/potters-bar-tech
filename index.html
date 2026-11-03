@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +21,6 @@
       --bg-gray: #f8fafc;
       --card-hover: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
     }
-.btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-}
 
     * {
       box-sizing: border-box;
@@ -68,7 +49,6 @@
 
     .nav-container {
       max-width: 1200px;
-     <a href="RC-ticket.html" class="btn btn-primary">Repair Ticket</a>⁠ 
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -88,10 +68,10 @@
     }
 
     .nav-right {
-   <a href="RC-ticket.html" class="btn btn-primary">Repair Ticket</a>
-  
+      display: flex;
+      align-items: center;
       gap: 1rem;
- }   
+    }
 
     .phone-link {
       font-size: 0.95rem;
@@ -447,14 +427,14 @@
 
   <main class="container" id="services">
     <div class="controls-wrapper">
-      <input type="text" id="searchInput" class="search-box" placeholder="Search 50 services (e.g. SSD, printer, malware, thermal, screen)...">
+      <input type="text" id="searchInput" class="search-box" placeholder="Search services (e.g. SSD, printer, malware, thermal, screen)...">
       
       <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">All Services (50)</button>
+        <button class="filter-btn active" data-filter="all">All Services</button>
         <button class="filter-btn" data-filter="revivals">⚡ Speed Revivals (1–7)</button>
         <button class="filter-btn" data-filter="software">🛡️ Software, Security &amp; Data (8–26)</button>
         <button class="filter-btn" data-filter="home-tech">📡 Wi-Fi, Printers &amp; Home Tech (27–37)</button>
-        <button class="filter-btn" data-filter="business-hardware">💼 Business &amp; Repairs (38–50)</button>
+        <button class="filter-btn" data-filter="business-hardware">💼 Hardware &amp; Repairs (44–50)</button>
       </div>
     </div>
 
@@ -833,69 +813,9 @@
         </div>
       </div>
 
-      <!-- CATEGORY 7 & 8: Small Business & Hardware (38–50) -->
+      <!-- CATEGORY 8: Hardware & Repairs (44–50) -->
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>38. Custom Domain Business Email</h3>
-        <p>Setting up yourname@business.co.uk on Microsoft 365 or Google Workspace with complete DNS verification and MX setup.</p>
-        <div class="card-footer">
-          <div class="price">£80 <span class="price-suffix">flat rate</span></div>
-          <button class="btn btn-primary" onclick="openBooking('Custom Domain Business Email', '£80')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>39. DNS Deliverability Fix (SPF/DKIM/DMARC)</h3>
-        <p>Resolving authentication records so your business quotes and invoices stop landing in customer spam and junk folders.</p>
-        <div class="card-footer">
-          <div class="price">£55 <span class="price-suffix">flat rate</span></div>
-          <button class="btn btn-primary" onclick="openBooking('DNS Deliverability Fix', '£55')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>40. Office Shared Storage (NAS) Setup</h3>
-        <p>Deploying a Synology or QNAP central network storage unit with RAID redundancy, user access rights, and off-site cloud sync.</p>
-        <div class="card-footer">
-          <div class="price">£140 <span class="price-suffix">flat rate</span></div>
-          <button class="btn btn-primary" onclick="openBooking('Office Shared NAS Setup', '£140')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>41. VoIP Desk Phone Provisioning</h3>
-        <p>Flashing firmware and provisioning Yealink, Mitel, or Cisco IP phones to link seamlessly with cloud SIP VoIP providers.</p>
-        <div class="card-footer">
-          <div class="price">£65 <span class="price-suffix">flat rate</span></div>
-          <button class="btn btn-primary" onclick="openBooking('VoIP Desk Phone Provisioning', '£65')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>42. Scheduled Monthly Maintenance</h3>
-        <p>Proactive monthly workstation updates, patch management, antivirus sweeps, and health checks for small local practices.</p>
-        <div class="card-footer">
-          <div class="price">£90 <span class="price-suffix">/ month</span></div>
-          <button class="btn btn-primary" onclick="openBooking('Monthly IT Maintenance Retainer', '£90/mo')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
-        <h3>43. Small Office Network Switch Setup</h3>
-        <p>Installing unmanaged or PoE network switches and terminating wall patch panels to connect office desktops and printers.</p>
-        <div class="card-footer">
-          <div class="price">£85 <span class="price-suffix">flat rate</span></div>
-          <button class="btn btn-primary" onclick="openBooking('Office Network Switch Setup', '£85')">Book</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>44. Employee Onboarding / Offboarding Prep</h3>
         <p>Standardizing, imaging, and security-prepping laptops for new hires, or securely wiping returned devices from departing staff.</p>
         <div class="card-footer">
@@ -905,7 +825,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>45. Laptop Battery Replacement</h3>
         <p>Replacing swollen, degraded, or dead internal laptop batteries with fresh high-capacity cells to restore wireless runtime.</p>
         <div class="card-footer">
@@ -915,7 +835,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>46. Desktop PC Power Supply (PSU) Swap</h3>
         <p>Diagnosing non-booting or sparking PCs and installing fresh 80-Plus certified modular power supply units.</p>
         <div class="card-footer">
@@ -925,7 +845,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>47. Laptop Keyboard Replacement</h3>
         <p>Swapping broken, sticky, or liquid-damaged keyboards on modular laptops with genuine replacement parts.</p>
         <div class="card-footer">
@@ -935,7 +855,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>48. iPhone Screen Replacement</h3>
         <p>Replacing cracked glass panels and unresponsive touchscreens with premium OLED or Incell quality-tested displays.</p>
         <div class="card-footer">
@@ -945,7 +865,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>49. Custom Desktop PC Assembly</h3>
         <p>Professional assembly of client-sourced components into a completed rig with clean cable management, BIOS flashing, and stress testing.</p>
         <div class="card-footer">
@@ -955,7 +875,7 @@
       </div>
 
       <div class="card" data-category="business-hardware">
-        <div class="card-category">Business IT &amp; Repairs</div>
+        <div class="card-category">Hardware &amp; Repairs</div>
         <h3>50. Bench Diagnostic Assessment</h3>
         <p>Comprehensive stress testing and multimeter circuit checks for unexplained crashes. Fully deductible if you proceed with repair.</p>
         <div class="card-footer">
