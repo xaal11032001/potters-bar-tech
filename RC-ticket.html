@@ -133,26 +133,26 @@
             <p>Submit your device details for workshop drop-off, remote support, or postal collection.</p>
         </div>
         
-        <!-- Form routes inquiries straight to your email address -->
-        <form action="https://formspree.io/f/aderianwallaxaal@gmail.com" method="POST">
+        <!-- Uses a direct mailto link handler to route tickets straight to your email without errors -->
+        <form id="ticketForm" onsubmit="submitTicket(event)">
             <div class="form-group">
                 <label for="customerName">Full Name</label>
-                <input type="text" id="customerName" name="customerName" required placeholder="John Smith">
+                <input type="text" id="customerName" required placeholder="John Smith">
             </div>
 
             <div class="form-group">
                 <label for="customerPhone">Phone / WhatsApp Number</label>
-                <input type="tel" id="customerPhone" name="customerPhone" required placeholder="07724 631623">
+                <input type="tel" id="customerPhone" required placeholder="07724 631623">
             </div>
 
             <div class="form-group">
                 <label for="deviceType">Device Make & Model</label>
-                <input type="text" id="deviceType" name="deviceType" required placeholder="e.g. Dell Inspiron / MacBook Air">
+                <input type="text" id="deviceType" required placeholder="e.g. Dell Inspiron / MacBook Air">
             </div>
 
             <div class="form-group">
                 <label for="logistics">Service Delivery Method</label>
-                <select id="logistics" name="logistics" required>
+                <select id="logistics" required>
                     <option value="Royal Mail Tracked Collection">📦 Royal Mail Tracked Collection</option>
                     <option value="Remote IT Support (AnyDesk)">⚡ Remote IT Support (AnyDesk)</option>
                     <option value="Workshop Drop-Off (Potters Bar)">📍 Workshop Drop-Off (Potters Bar)</option>
@@ -161,7 +161,7 @@
 
             <div class="form-group">
                 <label for="issueDescription">Problem Description / Symptoms</label>
-                <textarea id="issueDescription" name="issueDescription" required placeholder="Describe what's happening with your device..."></textarea>
+                <textarea id="issueDescription" required placeholder="Describe what's happening with your device..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn">Submit Repair Ticket</button>
@@ -169,5 +169,27 @@
 
         <a href="index.html" class="back-link">← Return to Home & Services</a>
     </div>
+
+    <script>
+        function submitTicket(event) {
+            event.preventDefault();
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const device = document.getElementById('deviceType').value;
+            const logistics = document.getElementById('logistics').value;
+            const issue = document.getElementById('issueDescription').value;
+
+            const subject = encodeURIComponent("New Repair Ticket from " + name);
+            const body = encodeURIComponent(
+                "Customer Name: " + name + "\n" +
+                "Phone: " + phone + "\n" +
+                "Device: " + device + "\n" +
+                "Delivery Method: " + logistics + "\n\n" +
+                "Issue Description:\n" + issue
+            );
+
+            window.location.href = `mailto:aderianwallaxaal@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
 </body>
 </html>
