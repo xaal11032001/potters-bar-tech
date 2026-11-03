@@ -160,7 +160,6 @@
     .price { font-size: 1.35rem; font-weight: 800; color: var(--dark); }
     .price-suffix { font-size: 0.78rem; font-weight: 500; color: var(--text-muted); }
 
-    /* Direct Booking Form Section */
     .booking-container {
       max-width: 650px;
       margin: 3rem auto;
@@ -169,24 +168,15 @@
       border-radius: 16px;
       padding: 2.5rem;
       box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+      text-align: center;
     }
-    .booking-container h2 { font-size: 1.8rem; color: var(--dark); margin-bottom: 0.5rem; text-align: center; }
-    .booking-container p.form-desc { text-align: center; color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .booking-container h2 { font-size: 1.8rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .booking-container p.form-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
 
-    .form-group { margin-bottom: 1.25rem; }
-    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--dark); margin-bottom: 0.4rem; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      outline: none;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    .booking-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
@@ -245,7 +235,7 @@
         <p>Full sector clone of slow mechanical hard drives to a fast SSD. Preserves all files, apps, and layout with 5x faster speeds.</p>
         <div class="card-footer">
           <div class="price">£85 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('SSD Speed Revival (500GB) - £85')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20SSD%20Speed%20Revival%20(500GB)%20-%20£85" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -255,7 +245,7 @@
         <p>Drive cloning and partition expansion for massive photo, video, or gaming libraries requiring high storage bandwidth.</p>
         <div class="card-footer">
           <div class="price">£125–£165</div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('High-Capacity SSD Revival - £125-£165')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20High-Capacity%20SSD%20Revival%20-%20£125-£165" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -265,7 +255,7 @@
         <p>Sourcing and fitting matching RAM modules to eliminate multi-tab browser stuttering, lag, and out-of-memory crashes.</p>
         <div class="card-footer">
           <div class="price">£35 <span class="price-suffix">+ parts</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('RAM Memory Upgrade - £35 + parts')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20RAM%20Memory%20Upgrade%20-%20£35%20+%20parts" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -275,7 +265,7 @@
         <p>Disables sluggish background startup services, purges OEM bloatware, cleans caches, and optimizes registry settings.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Deep System Optimization - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Deep%20System%20Optimization%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -285,7 +275,7 @@
         <p>Full chassis disassembly, heatsink dust clearing, and high-performance thermal compound repasting to stop loud fans and thermal throttling.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Laptop Thermal Overhaul - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Laptop%20Thermal%20Overhaul%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -295,7 +285,7 @@
         <p>Bypasses artificial TPM 2.0 / CPU limitations on older unsupported hardware to install Windows 11 safely without deleting personal files.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Windows 11 In-Place Upgrade - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Windows%2011%20In-Place%20Upgrade%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -305,7 +295,7 @@
         <p>Purging obsolete Windows.old directories, orphaned update caches, temp dumps, and duplicate media to recover tens of gigabytes.</p>
         <div class="card-footer">
           <div class="price">£35 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Storage Space Reclamation - £35')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Storage%20Space%20Reclamation%20-%20£35" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -316,7 +306,7 @@
         <p>Fresh genuine Windows install completely devoid of manufacturer bloatware, fully patched with tested motherboard drivers.</p>
         <div class="card-footer">
           <div class="price">£50 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Clean Windows Installation - £50')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Clean%20Windows%20Installation%20-%20£50" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -326,7 +316,7 @@
         <p>Complete recovery, reformatting, and clean macOS deployment for sluggish or corrupted MacBooks and iMacs.</p>
         <div class="card-footer">
           <div class="price">£55 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('macOS Clean Reinstall - £55')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20macOS%20Clean%20Reinstall%20-%20£55" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -336,7 +326,7 @@
         <p>Partitioning internal storage safely to run Ubuntu, Linux Mint, or Fedora side-by-side with Windows with a GRUB boot menu.</p>
         <div class="card-footer">
           <div class="price">£60 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Dual-Boot OS Setup - £60')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Dual-Boot%20OS%20Setup%20-%20£60" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -346,7 +336,7 @@
         <p>Dump file kernel analysis, faulty driver isolation, and boot sector remediation to stop perpetual reboot loops and stop codes.</p>
         <div class="card-footer">
           <div class="price">£50 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Blue Screen (BSOD) Fix - £50')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20BSOD%20Fix%20-%20£50" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -356,7 +346,7 @@
         <p>Offline credential bypass to safely reset locked local administrator accounts without formatting or losing personal files.</p>
         <div class="card-footer">
           <div class="price">£35 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Windows Password Reset - £35')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Windows%20Password%20Reset%20-%20£35" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -366,7 +356,7 @@
         <p>Fixing temporary profile load errors so your original desktop, document folders, app settings, and shortcuts reappear intact.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Corrupted User Profile Repair - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Corrupted%20User%20Profile%20Repair%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -376,7 +366,7 @@
         <p>Transferring all documents, photos, browser bookmarks, stored passwords, and desktop layouts from an old machine to a new PC.</p>
         <div class="card-footer">
           <div class="price">£60 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('White Glove Data Migration - £60')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20White%20Glove%20Data%20Migration%20-%20£60" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -386,7 +376,7 @@
         <p>Deep file carving to recover deleted files, emptied recycle bins, or photos from formatted SD cards and USB pen drives.</p>
         <div class="card-footer">
           <div class="price">£50–£85</div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Accidental Deletion File Recovery - £50-£85')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20File%20Recovery%20-%20£50-£85" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -396,7 +386,7 @@
         <p>Bit-stream disk imaging to salvage critical documents from clicking, unmountable, or degraded hard drives before total death.</p>
         <div class="card-footer">
           <div class="price">£75–£120</div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Failing Hard Drive Data Extraction - £75-£120')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Hard%20Drive%20Data%20Extraction%20-%20£75-£120" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -406,7 +396,7 @@
         <p>Configuring scheduled, hands-off local backups via Windows File History or Macrium to keep complete off-line snapshots.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Automated External Backup Setup - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Automated%20Backup%20Setup%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -416,7 +406,7 @@
         <p>Setting up and syncing automatic background backups to Microsoft OneDrive, Google Drive, or Dropbox without duplicate folders.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Cloud Backup Automation - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Cloud%20Backup%20Automation%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -426,7 +416,7 @@
         <p>Irreversible multi-pass data destruction on retired hard drives before resale or recycling, with a Certificate of Erasure.</p>
         <div class="card-footer">
           <div class="price">£25 <span class="price-suffix">/ drive</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Secure Data Erasure - £25')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Secure%20Data%20Erasure%20-%20£25" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -436,7 +426,7 @@
         <p>Safely transferring thousands of photos/videos from iPhone or Android to a laptop or external drive to reclaim phone memory.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Phone Photo Offloading - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Phone%20Photo%20Offloading%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -446,7 +436,7 @@
         <p>Eliminating intrusive ad pop-ups, malicious browser hijackers, and persistent Trojans using kernel-level sanitization tools.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Malware & Adware Deep Clean - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Malware%20Deep%20Clean%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -456,7 +446,7 @@
         <p>Safely terminating locked full-screen scam screens and removing rogue remote management apps downloaded during a call.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Scam Removal - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Scam%20Removal%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -466,7 +456,7 @@
         <p>Comprehensive device sanitization, registry audit, and credential resetting after unauthorized remote scam access.</p>
         <div class="card-footer">
           <div class="price">£60 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Post-Scam Security Audit - £60')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Post-Scam%20Security%20Audit%20-%20£60" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -476,7 +466,7 @@
         <p>Configuring system-level and browser-level tracker blockers (uBlock Origin) to eliminate ads, YouTube interruptions, and trackers.</p>
         <div class="card-footer">
           <div class="price">£30 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Ad-Blocker & Privacy Setup - £30')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Ad-Blocker%20Setup%20-%20£30" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -486,7 +476,7 @@
         <p>Setting up Bitwarden or 1Password, auditing reused passwords, configuring 2FA, and demonstrating secure autofill across all devices.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Password Manager Setup - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Password%20Manager%20Setup%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -496,7 +486,7 @@
         <p>Configuring DNS content filtering, safe search enforcement, and schedule limits on Windows PCs, iPads, or home Wi-Fi routers.</p>
         <div class="card-footer">
           <div class="price">£50 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Parental Controls Setup - £50')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Parental%20Controls%20Setup%20-%20£50" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -507,7 +497,7 @@
         <p>Resolving persistent offline status, print spooler errors, driver conflicts, and fixing unstable Wi-Fi connections.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Wireless Printer Setup - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Wireless%20Printer%20Setup%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -517,7 +507,7 @@
         <p>Configuring Thunderbolt/USB-C docks, dual-monitor display scaling, external keyboards, and clean cable routing for home desks.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Dual-Monitor & Dock Setup - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Dual-Monitor%20Setup%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -527,7 +517,7 @@
         <p>Fast remote connection via AnyDesk/TeamViewer to solve email sync glitches, PDF bugs, or software errors without an in-person visit.</p>
         <div class="card-footer">
           <div class="price">£30 <span class="price-suffix">/ session</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Remote IT Helpdesk - £30')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Remote%20IT%20Helpdesk%20-%20£30" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -537,7 +527,7 @@
         <p>Configuring Outlook, Thunderbird, or Apple Mail with IMAP/SMTP, fixing sync discrepancies, and archiving bloated PST files.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Email Client Configuration - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Email%20Client%20Config%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -547,7 +537,7 @@
         <p>Automated bulk installation of standard utilities: LibreOffice/MS 365, browsers, PDF tools, VLC, and essential runtimes.</p>
         <div class="card-footer">
           <div class="price">£30 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Software Suite Bulk Setup - £30')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Software%20Suite%20Setup%20-%20£30" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -557,7 +547,7 @@
         <p>Resolving privacy permissions, driver conflicts, and distorted sound for Zoom, Microsoft Teams, and Google Meet.</p>
         <div class="card-footer">
           <div class="price">£35 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Webcam & Mic Audio Fix - £35')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Webcam%20Audio%20Fix%20-%20£35" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -567,7 +557,7 @@
         <p>Installing and placing whole-home mesh systems (TP-Link Deco, Eero) to guarantee wall-to-wall coverage and seamless roaming.</p>
         <div class="card-footer">
           <div class="price">£65 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Mesh Wi-Fi Setup - £65')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Mesh%20Wi-Fi%20Setup%20-%20£65" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -577,7 +567,7 @@
         <p>Analyzing local RF congestion, changing overlapping channels, and splitting 2.4GHz / 5GHz bands for maximum wireless throughput.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Router Optimization - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Router%20Optimization%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -587,7 +577,7 @@
         <p>Connecting garden offices or remote bedrooms to high-speed Ethernet via electrical wiring using paired AV2 powerline adapters.</p>
         <div class="card-footer">
           <div class="price">£40 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Powerline Adapter Setup - £40')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Powerline%20Adapter%20Setup%20-%20£40" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -597,7 +587,7 @@
         <p>Creating an isolated guest network for smart plugs, security cameras, and TV dongles so smart devices cannot access your PC.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('IoT Network Isolation - £45')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20IoT%20Network%20Isolation%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -607,7 +597,7 @@
         <p>Connecting Fire Sticks, Apple TV, and smart TVs to optimum Wi-Fi bands, configuring accounts, audio output, and streaming apps.</p>
         <div class="card-footer">
           <div class="price">£35 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Smart TV Setup - £35')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Smart%20TV%20Setup%20-%20£35" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -618,7 +608,7 @@
         <p>Standardizing, imaging, and security-prepping laptops for new hires, or securely wiping returned devices from departing staff.</p>
         <div class="card-footer">
           <div class="price">£50 <span class="price-suffix">/ machine</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Employee PC Prep - £50')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Employee%20PC%20Prep%20-%20£50" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -628,7 +618,7 @@
         <p>Replacing swollen, degraded, or dead internal laptop batteries with fresh high-capacity cells to restore wireless runtime.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">+ battery</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Laptop Battery Replacement - £45 + battery')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Laptop%20Battery%20Replacement%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -638,7 +628,7 @@
         <p>Diagnosing non-booting or sparking PCs and installing fresh 80-Plus certified modular power supply units.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">+ PSU</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Desktop PSU Swap - £45 + PSU')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Desktop%20PSU%20Swap%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -648,7 +638,7 @@
         <p>Swapping broken, sticky, or liquid-damaged keyboards on modular laptops with genuine replacement parts.</p>
         <div class="card-footer">
           <div class="price">£45 <span class="price-suffix">+ part</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Laptop Keyboard Replacement - £45 + part')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Laptop%20Keyboard%20Replacement%20-%20£45" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -658,7 +648,7 @@
         <p>Replacing cracked glass panels and unresponsive touchscreens with premium OLED or Incell quality-tested displays.</p>
         <div class="card-footer">
           <div class="price">£65–£95 <span class="price-suffix">all-in</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('iPhone Screen Replacement - £65-£95')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20iPhone%20Screen%20Replacement%20-%20£65-£95" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -668,7 +658,7 @@
         <p>Professional assembly of client-sourced components into a completed rig with clean cable management, BIOS flashing, and stress testing.</p>
         <div class="card-footer">
           <div class="price">£90 <span class="price-suffix">flat rate</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Custom PC Assembly - £90')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Custom%20PC%20Assembly%20-%20£90" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
@@ -678,56 +668,23 @@
         <p>Comprehensive stress testing and multimeter circuit checks for unexplained crashes. Fully deductible if you proceed with repair.</p>
         <div class="card-footer">
           <div class="price">£25 <span class="price-suffix">deductible</span></div>
-          <a href="#bookForm" class="btn btn-primary" onclick="selectService('Bench Diagnostic Assessment - £25')">Book</a>
+          <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book:%20Bench%20Diagnostic%20Assessment%20-%20£25" target="_blank" class="btn btn-primary">Book</a>
         </div>
       </div>
 
     </div>
   </main>
 
-  <!-- DIRECT BOOKING FORM SECTION (Connected to Formspree for aderianwallaxaal@gmail.com) -->
-  <section class="container" id="bookForm" style="padding-top: 0;">
+  <!-- DIRECT BOOKING SECTION -->
+  <section class="container" style="padding-top: 0;">
     <div class="booking-container">
-      <h2>Open a Repair Ticket</h2>
-      <p class="form-desc">Fill out your details below. Submissions go straight to your email inbox for Royal Mail collection, remote support, or workshop drop-off.</p>
+      <h2>Need a Custom Repair or Postal Collection?</h2>
+      <p class="form-desc">Click below to message us directly via WhatsApp or send an email inquiry to arrange your Royal Mail Tracked Collection or Remote support session.</p>
       
-      <form action="https://formspree.io/f/aderianwallaxaal@gmail.com" method="POST">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="name" required placeholder="John Smith">
-        </div>
-
-        <div class="form-group">
-          <label>Phone / WhatsApp Number</label>
-          <input type="tel" name="phone" required placeholder="07724 631623">
-        </div>
-
-        <div class="form-group">
-          <label>Device Make &amp; Model</label>
-          <input type="text" name="device" required placeholder="e.g. Dell Inspiron 15 / MacBook Air">
-        </div>
-
-        <div class="form-group">
-          <label>Selected Service</label>
-          <input type="text" id="selectedServiceInput" name="service" value="General Inquiry / Custom Repair" required>
-        </div>
-
-        <div class="form-group">
-          <label>Service Delivery Method</label>
-          <select name="logistics">
-            <option value="Royal Mail Tracked Collection">📦 Royal Mail Tracked Collection (Postal)</option>
-            <option value="Remote IT Support (AnyDesk)">⚡ Remote IT Support (AnyDesk)</option>
-            <option value="Workshop Drop-Off (Potters Bar)">📍 Workshop Drop-Off (Potters Bar)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Problem Description / Symptoms</label>
-          <textarea name="message" rows="4" required placeholder="Describe what's happening with your device..."></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Repair Ticket</button>
-      </form>
+      <div class="booking-actions">
+        <a href="https://wa.me/447724631623?text=Hi%20Apex%20Tech,%20I%20would%20like%20to%20book%20a%20repair%20service." target="_blank" class="btn btn-whatsapp" style="padding: 1rem; font-size: 1.05rem;">💬 Book via WhatsApp (Fastest)</a>
+        <a href="mailto:aderianwallaxaal@gmail.com?subject=Repair%20Ticket%20Inquiry&body=Hi%20Apex%20Tech,%0A%0AMy%20Name:%0APhone%20Number:%0ADevice%20Model:%0AService%20Needed:%0ADelivery%20Method%20(Royal%20Mail%20Collection%20/%20Remote%20AnyDesk):" class="btn btn-primary" style="padding: 1rem; font-size: 1.05rem;">✉️ Send Repair Ticket via Email</a>
+      </div>
     </div>
   </section>
 
@@ -768,11 +725,6 @@
           card.style.display = 'none';
         }
       });
-    }
-
-    // Auto-fill selected service in form
-    function selectService(serviceName) {
-      document.getElementById('selectedServiceInput').value = serviceName;
     }
   </script>
 </body>
