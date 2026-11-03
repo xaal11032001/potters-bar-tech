@@ -80,7 +80,6 @@
             border-radius: 6px;
             font-size: 16px;
             font-family: inherit;
-            transition: border-color 0.2s, ring 0.2s;
         }
 
         .form-group input:focus, 
@@ -107,137 +106,68 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
         }
 
         button.submit-btn:hover {
             background-color: var(--primary-hover);
         }
 
-        .success-message {
-            display: none;
+        .back-link {
+            display: block;
             text-align: center;
-            padding: 20px;
-        }
-
-        .success-message i {
-            font-size: 48px;
-            color: #22c55e;
-            margin-bottom: 16px;
-        }
-
-        .success-message h2 {
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .success-message p {
+            margin-top: 20px;
             color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background-color: var(--bg-gray);
-            color: var(--dark);
-            padding: 10px 20px;
-            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
             font-size: 14px;
-            transition: background-color 0.2s;
         }
 
-        .btn-secondary:hover {
-            background-color: var(--border);
+        .back-link:hover {
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="form-content">
-            <div class="header">
-                <h1>Repair Ticket Request</h1>
-                <p>Provide details for your device issue</p>
+        <div class="header">
+            <h1>Open a Repair Ticket</h1>
+            <p>Submit your device details for workshop drop-off, remote support, or postal collection.</p>
+        </div>
+        
+        <!-- Form routes inquiries straight to your email address -->
+        <form action="https://formspree.io/f/aderianwallaxaal@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="customerName">Full Name</label>
+                <input type="text" id="customerName" name="customerName" required placeholder="John Smith">
             </div>
-            <form id="ticket-form">
-                <div class="form-group">
-                    <label for="customerName">Customer Name</label>
-                    <input type="text" id="customerName" name="customerName" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label for="deviceType">Device Type</label>
-                    <select id="deviceType" name="deviceType" required>
-                        <option value="" disabled selected>Select device type</option>
-                        <option value="iPhone 13">iPhone 13</option>
-                        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-                        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-                        <option value="MacBook Air">MacBook Air</option>
-                        <option value="MacBook Pro">MacBook Pro</option>
-                        <option value="iPad">iPad</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="issueDescription">Issue Description</label>
-                    <textarea id="issueDescription" name="issueDescription" required placeholder="Describe the problem you are experiencing..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn" id="submit-btn">
-                    <span>Submit Ticket</span>
-                </button>
-            </form>
-        </div>
 
-        <div class="success-message" id="success-message">
-            <i class="fa-solid fa-circle-check"></i>
-            <h2>Ticket Submitted Successfully!</h2>
-            <p>Your repair ticket has been created. We will be in touch shortly.</p>
-            <a href="index.html" class="btn-secondary">Return Home</a>
-        </div>
+            <div class="form-group">
+                <label for="customerPhone">Phone / WhatsApp Number</label>
+                <input type="tel" id="customerPhone" name="customerPhone" required placeholder="07724 631623">
+            </div>
+
+            <div class="form-group">
+                <label for="deviceType">Device Make & Model</label>
+                <input type="text" id="deviceType" name="deviceType" required placeholder="e.g. Dell Inspiron / MacBook Air">
+            </div>
+
+            <div class="form-group">
+                <label for="logistics">Service Delivery Method</label>
+                <select id="logistics" name="logistics" required>
+                    <option value="Royal Mail Tracked Collection">📦 Royal Mail Tracked Collection</option>
+                    <option value="Remote IT Support (AnyDesk)">⚡ Remote IT Support (AnyDesk)</option>
+                    <option value="Workshop Drop-Off (Potters Bar)">📍 Workshop Drop-Off (Potters Bar)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="issueDescription">Problem Description / Symptoms</label>
+                <textarea id="issueDescription" name="issueDescription" required placeholder="Describe what's happening with your device..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Repair Ticket</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Return to Home & Services</a>
     </div>
-
-    <script>
-        const form = document.getElementById('ticket-form');
-        const formContent = document.getElementById('form-content');
-        const successMessage = document.getElementById('success-message');
-        const submitBtn = document.getElementById('submit-btn');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Submitting...</span>';
-
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch('/api/tickets', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
-
-                if (response.ok) {
-                    formContent.style.display = 'none';
-                    successMessage.style.display = 'block';
-                } else {
-                    alert('Error submitting ticket. Please try again.');
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<span>Submit Ticket</span>';
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Connection error. Please try again.');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Submit Ticket</span>';
-            }
-        });
-    </script>
 </body>
 </html>
