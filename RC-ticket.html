@@ -57,8 +57,9 @@
         }
         button.submit-btn:hover { background-color: var(--primary-hover); }
 
-        .back-link { display: block; text-align: center; margin-top: 20px; color: var(--text-muted); text-decoration: none; font-size: 14px; }
-        .back-link:hover { color: var(--primary); }
+        .back-links { display: flex; justify-content: space-between; margin-top: 20px; font-size: 14px; }
+        .back-links a { color: var(--text-muted); text-decoration: none; }
+        .back-links a:hover { color: var(--primary); }
     </style>
 </head>
 <body>
@@ -101,7 +102,10 @@
             <button type="submit" class="submit-btn">Submit Repair Ticket</button>
         </form>
 
-        <a href="index.html" class="back-link">← Return to Home & Services</a>
+        <div class="back-links">
+            <a href="index.html">← Home</a>
+            <a href="status.html">Check Status Board →</a>
+        </div>
     </div>
 
     <script>
