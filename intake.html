@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Repair Intake</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
+    div { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { background: #3b82f6; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Book New Device Repair</h2>
+  <form id="intake-form">
+    <div>
+      <label>Customer Name</label>
+      <input type="text" id="name" required placeholder="John Doe">
+    </div>
+    <div>
+      <label>Mobile Number</label>
+      <input type="tel" id="phone" required placeholder="07123456789">
+    </div>
+    <div>
+      <label>Device Model</label>
+      <input type="text" id="model" required placeholder="iPhone 13">
+    </div>
+    <div>
+      <label>Reported Issue</label>
+      <textarea id="issue" required placeholder="Screen cracked, touch unresponsive"></textarea>
+    </div>
+    <button type="submit" id="submit-btn">Create Ticket</button>
+  </form>
+
+  <script>
+    // Initialize Supabase
+    const SUPABASE_URL = 'https://your-project-ref.supabase.co';
+    const SUPABASE_ANON_KEY = 'your-anon-key';
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById('intake-form');
+    const btn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = "Creating Ticket...";
+
+      const ticketData = {
+        customer_name: document.getElementById('name').value,
+        customer_phone: document.getElementById('phone').value,
+        device_model: document.getElementById('model').value,
+        reported_issue: document.getElementById('issue').value
+      };
+
+      const { data, error } = await supabase
+        .from('repair_tickets')
+        .insert([ticketData])
+        .select();
+
+      if (error) {
+        alert('Error creating ticket: ' + error.message);
+        btn.disabled = false;
+        btn.textContent = "Create Ticket";
+      } else {
+        alert('Success! Ticket Created: ' + data[0].ticket_number);
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = "Create Ticket";
+      }
+    });
+  </script>
+</body>
+</html>
