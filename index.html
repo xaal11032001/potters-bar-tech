@@ -3,99 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apex Tech Solutions | Fast PC, Laptop & Tech Repair in Potters Bar</title>
-  <meta name="description" content="Specialist PC, laptop, and tech repair based in Potters Bar. SSD upgrades, thermal servicing, virus sanitization, remote IT support, and postal repair." />
+  <title>RepairTracker - Live Tech Service Status</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --whatsapp: #22c55e;
-      --whatsapp-hover: #16a34a;
-      --dark: #0f172a;
-      --card-bg: #ffffff;
-      --bg: #f8fafc;
-      --border: #e2e8f0;
-      --text: #334155;
-      --text-muted: #64748b;
-      --radius: 12px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 40;
-    }
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    .brand span { color: var(--primary); }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1rem;
-      border-radius: 8px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.15s ease;
-    }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-hover); }
-    .btn-whatsapp { background: var(--whatsapp); color: #fff; }
-    .btn-whatsapp:hover { background: var(--whatsapp-hover); }
-    .btn-outline { background: #fff; color: var(--dark); border: 1px solid var(--border); }
-    .btn-outline:hover { background: var(--bg); }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
 
-    .hero {
-      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
-      padding: 3.5rem 1.25rem 2.5rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-container { max-width: 800px; margin: 0 auto; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.85rem;
-      background: #eff6ff;
-      color: var(--primary);
-      border: 1px solid #bfdbfe;
-      border-radius: 9999px;
-      
+  <!-- Technician Simulator Bar (Test Bench Control) -->
+  <div class="tech-bar">
+    <div class="tech-bar-content">
+      <span class="badge-tech">Technician Control Panel</span>
+      <label for="stage-selector">Simulate Current Stage:</label>
+      <select id="stage-selector">
+        <option value="0">1. Checked In & Queued</option>
+        <option value="1">2. Diagnostic Bench</option>
+        <option value="2" selected>3. Board Work & Parts</option>
+        <option value="3">4. QA & Stress Testing</option>
+        <option value="4">5. Ready for Collection</option>
+      </select>
+    </div>
+  </div>
 
+  <div class="container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <h1>Apex Tech Repairs</h1>
+          <p class="subtitle">Live Hardware & Workshop Portal</p>
+        </div>
+      </div>
+      <div class="ticket-pill">
+        <span class="muted">Ticket:</span>
+        <strong id="ticket-id">TICK-8421</strong>
+      </div>
+    </header>
+
+    <!-- Main Status Card -->
+    <section class="card status-card">
+      <div class="card-header">
+        <div>
+          <span class="badge" id="status-badge">In Progress</span>
+          <h2 id="stage-title">Motherboard Rework & Component Replacement</h2>
+          <p class="text-muted" id="stage-desc">Our lead tech is conducting micro-soldering on the primary charging rail and thermal repasting.</p>
+        </div>
+        <div class="eta-box">
+          <span class="muted-small">Estimated Ready</span>
+          <strong id="eta-time">Today, 4:30 PM</strong>
+          <span class="tag-live">● Live Bench Sync</span>
+        </div>
+      </div>
+
+      <!-- 5-Stage Stepper -->
+      <div class="stepper" id="stepper">
+        <div class="step completed" data-step="0">
+          <div class="circle">✓</div>
+          <span class="step-label">Intake</span>
+        </div>
+        <div class="line completed"></div>
+        <div class="step completed" data-step="1">
+          <div class="circle">✓</div>
+          <span class="step-label">Diagnostics</span>
+        </div>
+        <div class="line active"></div>
+        <div class="step active" data-step="2">
+          <div class="circle">3</div>
+          <span class="step-label">Repair</span>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-step="3">
+          <div class="circle">4</div>
+          <span class="step-label">QA Testing</span>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-step="4">
+          <div class="circle">5</div>
+          <span class="step-label">Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-Column Details Grid -->
+    <div class="grid-2">
+      <!-- Left Column: Device & Hardware Checklist -->
+      <div class="col">
+        <section class="card">
+          <h3>Hardware Intake & Specs</h3>
+          <ul class="spec-list">
+            <li><span>Device</span> <strong>Lenovo ThinkPad T14 Gen 2</strong></li>
+            <li><span>Reported Fault</span> <strong>No power / intermittent charging</strong></li>
+            <li><span>Assigned Tech</span> <strong>Rob C. (Senior Hardware Tech)</strong></li>
+            <li><span>Queue Position</span> <strong class="text-accent">#1 on Active Bench</strong></li>
+          </ul>
+
+          <h4 class="mt-4">32-Point QA Diagnostic Checklist</h4>
+          <div class="checklist" id="qa-checklist">
+            <label class="check-item"><input type="checkbox" checked disabled /> Visual PCB Inspection</label>
+            <label class="check-item"><input type="checkbox" checked disabled /> DC Power Rail Voltage Test</label>
+            <label class="check-item"><input type="checkbox" checked id="chk-usb" /> Type-C Port Micro-Soldering</label>
+            <label class="check-item"><input type="checkbox" id="chk-thermal" /> Thermal Paste Arctic MX-6</label>
+            <label class="check-item"><input type="checkbox" id="chk-stress" /> 45-Min Cinebench Stress Test</label>
+          </div>
+        </section>
+
+        <!-- Quote Approval Module -->
+        <section class="card mt-4">
+          <h3>Technician Findings & Optional Approvals</h3>
+          <p class="text-muted small">An auxiliary issue was noted during intake. Approve or decline below:</p>
+          <div class="quote-box">
+            <div class="quote-info">
+              <strong>Battery Degradation Alert</strong>
+              <p>Current pack is at 61% health (swelling risk detected). Replace with OEM 50Wh pack?</p>
+              <span class="price">+£45.00</span>
+            </div>
+            <div class="quote-actions">
+              <button class="btn btn-outline" id="btn-decline">Decline</button>
+              <button class="btn btn-primary" id="btn-approve">Approve (+£45)</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Balance, Pickup, and Direct Chat -->
+      <div class="col">
+        <!-- Balance & Pickup -->
+        <section class="card">
+          <h3>Service Summary & Balance</h3>
+          <div class="balance-row">
+            <span>Core Diagnostics & Rework</span>
+            <span>£85.00</span>
+          </div>
+          <div class="balance-row" id="addon-row" style="display: none;">
+            <span>OEM Battery Replacement</span>
+            <span>£45.00</span>
+          </div>
+          <hr class="divider" />
+          <div class="balance-row total">
+            <strong>Total Balance</strong>
+            <strong id="total-price">£85.00</strong>
+          </div>
+
+          <div class="pickup-section mt-4">
+            <h4>Collection Preferences</h4>
+            <div class="btn-group">
+              <button class="btn btn-secondary" id="btn-curbside">🚗 I'm Outside / Curbside</button>
+              <button class="btn btn-secondary" id="btn-slot">📅 Reserve Slot</button>
+            </div>
+            <p class="text-muted small mt-2" id="pickup-msg">Collection window open Mon–Sat until 6:00 PM.</p>
+          </div>
+        </section>
+
+        <!-- Direct Workshop Chat -->
+        <section class="card mt-4">
+          <h3>Direct Desk Messaging</h3>
+          <div class="chat-window" id="chat-messages">
+            <div class="msg tech">
+              <span class="sender">Rob (Technician):</span>
+              <p>Board is on the preheater now. Replaced the fractured USB-C traces; doing resistance checks next.</p>
+            </div>
+          </div>
+          <form class="chat-input-row" id="chat-form">
+            <input type="text" id="chat-input" placeholder="Ask technician a question..." required />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
